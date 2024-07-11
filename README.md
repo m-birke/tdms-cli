@@ -7,14 +7,24 @@
 
 ## Table of Contents
 
+- [About](#about)
 - [Installation](#installation)
+- [Usage](#usage)
 - [License](#license)
+
+## About
+
+`tdms-cli` is a small tool to analyze [TDMS files](https://www.ni.com/en/support/documentation/supplemental/06/the-ni-tdms-file-format.html) easily via CLI. It depends on [npTDMS](https://nptdms.readthedocs.io/en/stable/index.html).
 
 ## Installation
 
 ```console
 pip install tdms-cli
 ```
+
+## Usage
+
+`tu --help`
 
 ## License
 
