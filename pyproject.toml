@@ -24,15 +24,25 @@ classifiers = [
   "Programming Language :: Python :: Implementation :: CPython",
   "Programming Language :: Python :: Implementation :: PyPy",
 ]
-dependencies = []
+dependencies = [
+  "nptdms",
+  "pandas",
+  "typer",
+]
 
 [project.urls]
 Documentation = "https://github.com/m-birke/tdms-cli#readme"
 Issues = "https://github.com/m-birke/tdms-cli/issues"
 Source = "https://github.com/m-birke/tdms-cli"
 
+[project.scripts]
+tu = "tdms_cli.cli:main"
+
 [tool.hatch.version]
 path = "src/tdms_cli/__about__.py"
+
+[tool.hatch.envs.default]
+path = "./.hatch/default"
 
 [tool.hatch.envs.types]
 extra-dependencies = [
