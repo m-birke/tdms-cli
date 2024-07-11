@@ -2,11 +2,15 @@ from pathlib import Path
 
 import typer
 
-from tdms_cli.extract_group_as_csv import extract_group
-from tdms_cli.count_tdms_content import count_groups
-from tdms_cli.tdms_metadata_extraction import print_file_metadata, print_group_metadata, display_groups, print_channel_meta
 from tdms_cli.__about__ import __version__
-
+from tdms_cli.count_tdms_content import count_groups
+from tdms_cli.extract_group_as_csv import extract_group
+from tdms_cli.tdms_metadata_extraction import (
+    display_groups,
+    print_channel_meta,
+    print_file_metadata,
+    print_group_metadata,
+)
 
 app = typer.Typer()
 meta_app = typer.Typer()
@@ -52,7 +56,7 @@ def group_meta_cli(tdms_file_path: str, idx: int = 0):
 @meta_app.command("ch")
 def channel_meta_cli(tdms_file_path: str, group_path: str = ""):
     """Prints the metadata of all channels of a group
-    
+
     If the group path is not specified, it defaults to first group
     """
     print_channel_meta(tdms_file_path, group_path)

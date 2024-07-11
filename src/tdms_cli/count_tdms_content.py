@@ -1,9 +1,10 @@
-from nptdms import TdmsFile as TF
 from typing import Dict
+
+from nptdms import TdmsFile
 
 
 def count_groups(path: str):
-    tdms_file = TF.read(path)
+    tdms_file = TdmsFile.read(path)
 
     num_groups = 0
     channel_count: Dict[int, int] = {}
