@@ -2,7 +2,7 @@ from pathlib import Path
 
 import typer
 
-from tdms_cli.__about__ import __version__
+from tdms_cli._version import __version__  # type: ignore[import]
 from tdms_cli.count_tdms_content import count_groups
 from tdms_cli.extract_group_as_csv import extract_group
 from tdms_cli.tdms_metadata_extraction import (
