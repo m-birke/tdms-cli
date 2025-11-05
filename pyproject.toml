@@ -7,20 +7,24 @@ name = "tdms-cli"
 dynamic = ["version"]
 description = "Small util to analyze TDMS files quickly via CLI"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.8"
 license = "MIT"
 license-files = ["LICENSE"]
 keywords = [
-  # TODO
+  "tdms",
+  "cli",
+  "command-line",
 ]
 authors = [
   { name = "m-birke", email = "wesci@web.de" },
 ]
 classifiers = [
   "License :: OSI Approved :: MIT License",
-  "Development Status :: 4 - Beta",
+  "Development Status :: 5 - Production/Stable",
   "Typing :: Typed",
   "Programming Language :: Python",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
@@ -30,7 +34,9 @@ classifiers = [
   "Operating System :: POSIX :: Linux",
 ]
 dependencies = [
-  # TODO
+  "nptdms",
+  "pandas",
+  "typer",
 ]
 
 [project.urls]
@@ -39,6 +45,9 @@ Documentation = "https://github.com/m-birke/tdms-cli#readme"
 Homepage = "https://github.com/m-birke/tdms-cli"
 Issues = "https://github.com/m-birke/tdms-cli/issues"
 Source = "https://github.com/m-birke/tdms-cli"
+
+[project.scripts]
+tu = "tdms_cli.cli:main"
 
 [tool.hatch]
 build.hooks.vcs.version-file = "src/tdms_cli/_version.py"
@@ -78,7 +87,7 @@ extra-dependencies = [
 check = "mypy --install-types --non-interactive {args:src/tdms_cli tests}"
 
 [tool.ruff]
-target-version = "py310"
+target-version = "py38"
 line-length = 120
 
 [tool.ruff.lint]
@@ -118,6 +127,8 @@ ignore = [
   "S105", "S106", "S107",
   # Ignore complexity
   "C901", "PLR0911", "PLR0912", "PLR0913", "PLR0915",
+  # Allow print statements
+  "T201",
 ]
 unfixable = [
   # Don't touch unused imports
